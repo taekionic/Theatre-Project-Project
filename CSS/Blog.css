@@ -1,0 +1,121 @@
+﻿/* ▼ This ▼ is for you to easily reference the colors on the Site.css page */
+/* Do not uncomment these color variables */
+
+/* CSS color variables */
+/*:root { /* Color palette for css */
+/* --main-color: #DB1A11;  Red */
+/*--main-color--light: #F04D44;*/ /* Red, a shade lighter */
+/*--secondary-color: #D6972A;*/ /* Yellow gold */
+/*--light-color: #FFFBFB;*/ /* White */
+/*--dark-color: #000000;*/ /* Black */
+/*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
+/*}*/
+
+.Comments-partial--contents {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 25vw;
+    width: 35vw;
+/*  min-height: 14vh;
+    max-height: 15vh;*/
+    padding: .5rem;
+    margin: 1rem;
+    font-size: .75rem;
+    color: black;
+    box-shadow: 0px 0px 2px .1px var(--secondary-color--dark);
+  
+
+}
+
+.Comments-partial--contents::before {
+    content: "";
+    position: absolute;
+    background-color: var(--light-color);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: .8;
+    filter: blur(2px);
+}
+
+.Comments-partial--author, .Comments-partial--message, .Comments-partial--likes {
+    padding: .4rem;
+}
+
+.Comments-partial--author {
+    border-bottom: 1px solid var(--secondary-color);
+    padding-bottom: .1rem;
+
+}
+
+.Comments-partial--message {
+    border-bottom: 1px solid var(--secondary-color);
+    overflow: auto;
+    min-height: 45%;
+}
+    .Comments-partial--message::-webkit-scrollbar {
+        display: none;
+
+    }
+
+
+.Comments-partial--likes {
+    display: flex;
+    flex-direction: row;
+}
+
+.Blog-Comments-ldratio {
+    height: .75vh;
+    width: 17.5%;
+    color: green;
+    background-color: red;
+    border-radius: 1rem;
+    float: right;
+}
+
+.Comments-partial--button {
+    max-height: 4vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+}
+
+.Blog-Comments-ldratio {
+    position: absolute;
+    right: 1rem;
+    bottom: 20%;
+    
+}
+
+#ldratio {
+    text-align: center;
+}
+
+.Comments-Partial-Delete {
+    position: absolute;
+    right: .5rem;
+    top: .5rem;
+    background-color: transparent;
+    border: none;
+}
+
+.Comments-Partial--success {
+    text-align: center;
+    margin: 1rem;
+    width:35vw;
+    background-color: forestgreen;
+    padding: .125rem;
+    border-radius: 1.5rem;
+    opacity: 0;
+}
+
+.Create-Partial--submitcomment {
+    color: red;
+    border: 1px solid var(--secondary-color);
+    float: right;
+}

@@ -1,0 +1,64 @@
+﻿@model TheatreCMS3.Areas.Blog.Models.Comments
+
+@{
+    ViewBag.Title = "_IndividualComment";
+    string editlink = Url.Action("Edit", "Blog", new { id = Model.CommentId });
+    string detaillink = Url.Action("Details", "Blog", new { id = Model.CommentId });
+    string deletelink = Url.Action("Delete", "Blog", new { id = Model.CommentId });
+}
+
+
+
+    <div class="Comments-partial--commentcontainer" id="commentbox @Model.CommentId">
+        <div class="Comments-partial--contents">
+            <div class="Comments-partial--author">
+                @Model.Author | @Model.CommentDate
+                <button data-toggle="modal" data-target="#deletepopup" data-urlpath="@deletelink" class="fa fa-times-circle Comments-Partial-Delete" id="@Model.CommentId"></button>
+            </div>
+            <div class="Comments-partial--message">
+                @Model.Message
+            </div>
+            <div class="Comments-partial--likes">
+                <button class="Comments-partial--button" onclick="clickLike(@Model.CommentId); " id="totallikes">
+                    <div class="fa fa-thumbs-up" aria-hidden="true" style="color: green;">
+                    </div>
+                    &nbsp;
+                    <p style="margin: 0;" id="likevalue @Model.CommentId">
+                        @Model.Likes
+                    </p>
+                </button>
+                &nbsp; | &nbsp;
+                <button class="Comments-partial--button" onclick="clickDislike(@Model.CommentId)" id="totaldislikes">
+                    <div class="fa fa-thumbs-down" aria-hidden="true" style="color: var(--main-color);">
+                    </div>
+                    &nbsp;
+                    <p style="margin: 0; color: red;" id="dislikevalue @Model.CommentId">
+                        @Model.Dislikes
+                    </p>
+                </button>
+                &nbsp;
+                <div class="Blog-Comments-ldratio">
+                    <div class="progress-bar bg-success" role="progressbar" id="progbar @Model.CommentId" style="width: @Model.likesRatio()%; height: .75vh; border-radius: 1rem;" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100">
+                    </div>
+                    <label class="like-ratio @Model.CommentId" id="ldratio">
+                        <p>@Model.likesRatio()% likes </p>
+                    </label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal @Model.CommentId" tabindex="-1" role="dialog" id="deletepopup">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>Are you sure you'd like to delete your comment? This cannot be undone.'</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger Comment-Partial--deleteConfirmed" data-urlpath="@deletelink" onclick="commentdelete(@Model.CommentId);">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,130 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalItem>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top: 2rem;">Index</h2>
+
+
+
+    <div class="form-group">
+        <button onclick="location.href ='/Rent/RentalItems/Create'" class="col-md-offset-2 col-md-10" style="width: 22%;">
+            Create New
+        </button>
+    </div>
+
+    <form asp-controller="RentalItems" asp-action="Index">
+        <p>
+            Search: &nbsp;<input style="background-color: var(--secondary-color); border: none; border-radius: .25rem; color: var(--light-color); padding: .25rem;" type="text" name="SearchString" />
+            <input type="submit" value="Filter" />
+        </p>
+    </form>
+
+    @*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Item)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PickupDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReturnDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemPhoto)
+            </th>
+            <th></th>
+        </tr>*@
+
+
+
+    @foreach (var item in Model)
+    {
+
+
+        string image = "";
+        if (item.ItemPhoto != null)
+        {
+            image = Convert.ToBase64String(item.ItemPhoto);
+        }
+        string editlink = Url.Action("Edit", "RentalItems", new { id = item.RentalItemId });
+        string detaillink = Url.Action("Details", "RentalItems", new { id = item.RentalItemId });
+        string deletelink = Url.Action("Delete", "RentalItems", new { id = item.RentalItemId });
+        <div class="RentalItem-index--cardcontainer">
+            <div class="card RentalItem-index--cards" style="background-image: url(data:image/jpg;base64,@image); background-size: 100% 100%;">
+                <div class="RentalItem-index-details">
+                    <div onclick="location.href='@detaillink'">
+                        <div class="RentalItem-index-detailinfo" height="100">@Html.DisplayFor(modelItem => item.ItemDescription)</div>
+
+                        <div>@Html.DisplayFor(modelItem => item.PickupDate)</div>
+                    </div>
+                    <div class="RentalItem-index--buttoncontainer">
+                        <div class="RentalItem-index--buttons" onclick="location.href='@editlink'">
+                            <div>
+                                <i class="fa fa-file" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                Edit
+                            </div>
+                        </div>
+
+                        <div class="RentalItem-index--buttons" onclick="location.href='@detaillink'">
+                            <div>
+                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+
+                            </div>
+                            <div>
+                                Details
+                            </div>
+                        </div>
+
+                        <div class="RentalItem-index--buttons" onclick="location.href='@deletelink'">
+                            <div>
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                Delete
+                            </div>
+                        </div>
+
+                        @*@Html.ActionLink("Edit", "Edit", new { id = item.RentalItemId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.RentalItemId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.RentalItemId })*@
+                    </div>
+
+                </div>
+            </div>
+            <div style="text-align: center;">@Html.DisplayFor(modelItem => item.Item)</div>
+        </div>
+
+    @*<tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickupDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReturnDate)
+            </td>
+            <td>
+                <img src="data:image/jpg;base64,@image" height="100" width="100" />
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.RentalItemId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.RentalItemId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.RentalItemId })
+            </td>
+        </tr>*@
+}
+
+@*</table>*@

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalPhotos>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RentalsName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Damaged)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentalPhoto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentalsName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Damaged)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentalPhoto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Details)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RentalPhotosId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RentalPhotosId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RentalPhotosId })
+        </td>
+    </tr>
+}
+
+</table>

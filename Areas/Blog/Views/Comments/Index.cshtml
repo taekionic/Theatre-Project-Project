@@ -1,0 +1,26 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comments>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<h2>Index</h2>
+
+
+<div class="Create-Partial--commentform" id="newformtest">
+        @Html.Partial("_PostComment", new TheatreCMS3.Areas.Blog.Models.Comments())
+</div>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    <button > New Comment</button>
+</p>
+
+
+
+<div>
+    @Html.Partial("_Comments")
+</div>

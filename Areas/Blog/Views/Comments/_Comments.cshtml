@@ -1,0 +1,35 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.Comments>
+
+
+@*
+    CommentDate
+    Author
+    Message
+    Likes
+    Dislikes
+*@
+
+@{
+    ViewBag.Title = "_Comments";
+    var id = ViewBag.CommentId;
+
+}
+
+@*<div>@Html.Partial("Create", new TheatreCMS3.Areas.Blog.Models.Comments())</div>*@
+
+<div id="mycomments">
+    @foreach (var item in Model)
+    {
+        Html.RenderPartial("_IndividualComment", item);
+
+    }
+</div>
+
+
+<div class="Comments-Partial--success" id="deletesuccess">
+    Your message has successfully been deleted!
+    <i class="fa fa-check" aria-hidden="true"></i>
+</div>
+
+
+@Scripts.Render("~/Scripts/Areas/Blog.js")

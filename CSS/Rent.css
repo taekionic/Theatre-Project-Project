@@ -1,0 +1,319 @@
+﻿/* ▼ This ▼ is for you to easily reference the colors on the Site.css page */
+/* Do not uncomment these color variables */
+
+/* CSS color variables */
+/*:root {*/ /* Color palette for css */
+/*--main-color: #DB1A11;*/ /* Red */
+/*--main-color--light: #F04D44;*/ /* Red, a shade lighter */
+/*--secondary-color: #D6972A;*/ /* Yellow gold */
+/*--light-color: #FFFBFB;*/ /* White */
+/*--dark-color: #000000;*/ /* Black */
+/*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
+/*--light-blue: rgb(93, 123, 244)*/ /*Light Blue - Added color on top of original*/
+/*}*/
+
+.RentalItem-create--header {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.rentalItem-create--form {
+    border: 1px solid var(--light-color);
+    margin: 2rem auto auto auto;
+    border-radius: 15px;
+    background-color: var(--light-color);
+    color: black;
+}
+
+    .rentalItem-create--form h4 {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .rentalItem-create--form .form-group,
+    .RentalItem-create--backbutton {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+        .rentalItem-create--form .form-group .RentalItem-create--inputbox {
+            margin-left: 10%;
+        }
+
+        .rentalItem-create--form .form-group .control-label {
+            margin-left: 8%;
+        }
+
+.RentalItem-create--createbutton .btn {
+    display: inherit;
+    margin: auto;
+    background-color: var(--main-color--light);
+    width: 25%;
+    margin-top: 2rem;
+    font-weight: bold;
+}
+
+
+.RentalItem-create--backbutton {
+    max-width: 83.333333%;
+    text-decoration: none;
+    display: inherit;
+    justify-content: center;
+    text-align: center;
+    padding: 0px 15px 0px 15px;
+}
+
+    .RentalItem-create--backbutton a {
+        display: inherit;
+        flex: 0 0 83.333333%;
+        margin: auto;
+        background-color: var(--secondary-color);
+        color: black;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+        width: 25%;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        font-weight: bold;
+    }
+
+.RentalItem-create--createbutton,
+.RentalItem-create--backbutton {
+    margin-left: 10%;
+}
+
+    .RentalItem-create--createbutton .btn:hover, .RentalItem-create--backbutton a:hover {
+        transform: scale(1.05);
+        text-decoration: none;
+    }
+
+
+.RentalItem-create--inputbox {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--dark-color);
+    color: var(--dark-color);
+}
+
+    .RentalItem-create--inputbox:focus {
+        border: .2rem solid;
+        border-color: var(--secondary-color--dark);
+        background-color: var(--secondary-color--dark);
+        color: var(--light-color);
+    }
+
+.RentalItem-index--cardcontainer {
+    display: inline-flex;
+    flex-direction: column;
+    max-width: 17.5%;
+    margin: .5rem;
+}
+
+.RentalItem-index--cards {
+    display: inherit;
+    overflow: hidden;
+    min-height: 15rem;
+    min-width: 10rem;
+    max-height: 15rem;
+    max-width: 10rem;
+    border: none;
+}
+
+
+.RentalItem-index-details {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    color: var(--secondary-color);
+    text-align: center;
+    transform: translatex(-100%);
+    font-size: .75rem;
+    max-height: 105%;
+    max-width: 105%;
+    min-height: 105%;
+    min-width: 105%;
+    cursor: pointer;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    text-shadow: 0 0 .125rem var(--secondary-color--dark);
+}
+
+.RentalItem-index-detailinfo {
+    display: inherit;
+    overflow: auto;
+    height: 8.5rem;
+    margin-bottom: .5rem;
+    word-break: break-word;
+}
+
+    .RentalItem-index-detailinfo::-webkit-scrollbar {
+        width: .25rem;
+        background: rgba(0,0,0,.25);
+        cursor: pointer;
+        border-radius: 30px;
+    }
+
+    .RentalItem-index-detailinfo::-webkit-scrollbar-thumb {
+        border-radius: 30px;
+        box-shadow: inset 0 0 2000px rgba(255, 255, 255, .25);
+        backdrop-filter: blur(10px);
+        transition: 5s ease-in-out;
+    }
+
+        .RentalItem-index-detailinfo::-webkit-scrollbar-thumb:hover {
+            box-shadow: inset 0 0 2000px rgba(255, 255, 255, .55);
+        }
+
+.RentalItem-index--buttoncontainer {
+    display: flex;
+    position: absolute;
+    bottom: 1rem;
+    z-index: 10;
+    height: 3rem;
+}
+
+.RentalItem-index--buttons {
+    display: inline-flex;
+    flex-direction: column;
+    margin: auto .5rem;
+    justify-items: end;
+    color: var(--light-color);
+    cursor: pointer;
+}
+
+    .RentalItem-index--buttons a {
+        color: var(--secondary-color);
+    }
+
+.RentalItem-index--cards:hover .RentalItem-index-details {
+    animation: imagecards .25s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes imagecards {
+    0% {
+        transform: translatex(-100%);
+    }
+
+    20% {
+        transform: translatex(-80%);
+        box-shadow: 0 0 400px var(--dark-color) inset;
+        backdrop-filter: blur(1px) brightness(100%);
+    }
+
+    40% {
+        transform: translatex(-60%);
+        box-shadow: 0 0 800px var(--dark-color) inset;
+        backdrop-filter: blur(1.5px) brightness(90%);
+    }
+
+    60% {
+        transform: translatex(-40%);
+        box-shadow: 0 0 1200px var(--dark-color) inset;
+        backdrop-filter: blur(2px) brightness(80%);
+    }
+
+    80% {
+        transform: translatex(-20%);
+        box-shadow: 0 0 1600px var(--dark-color) inset;
+        backdrop-filter: blur(2.5px) brightness(70%);
+    }
+
+    100% {
+        transform: translatex(-0%);
+        box-shadow: 0 0 2000px var(--dark-color) inset;
+        backdrop-filter: blur(3px) brightness(60%);
+    }
+}
+
+
+/*Details Page Styling*/
+
+.RentalItem-detail-detailbody {
+    padding: 3rem;
+    overflow: hidden;
+    border: 1px solid var(--secondary-color);
+    box-shadow: 0 0 20px 2px var(--secondary-color--dark);
+    border-radius: 1rem;
+    opacity: .9;
+}
+
+.RentalItem-details--container {
+    display: flex;
+    flex-direction: row;
+}
+
+.RentalItem-details--image {
+    display: flex;
+    margin-right: 2rem;
+    max-height: 25rem;
+    /*    overflow: hidden;*/
+    width: 22.5%;
+    position: relative;
+    flex-direction: column;
+}
+
+    .RentalItem-details--image img {
+        border-radius: .5rem;
+    }
+
+    .RentalItem-details--image::after {
+        content: "";
+        position: absolute;
+        border-right: .175rem solid var(--secondary-color);
+        transform: translateX(1rem);
+        border-radius: 95%;
+        right: 0;
+        height: 20rem;
+    }
+
+.RentalItem-details--info {
+    display: inherit;
+    flex-direction: column;
+    height: auto;
+    max-width: 74%;
+    overflow: hidden;
+}
+
+
+.RentalItem-details--infocontent {
+    display: inherit;
+    flex-direction: row;
+    width: 110%;
+}
+
+.RentalItem-details--infolabel {
+    margin: .5rem;
+}
+
+.RentalItem-details--infoinfo {
+    margin: .5rem;
+    font-weight: bold;
+    width: 75%;
+    word-wrap: break-word;
+}
+
+.RentalItem-detail-buttons {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-left: 3rem;
+    margin-top: .5rem;
+}
+
+.RentalItem-detail--backbutton {
+    min-width: 80%;
+    margin-top: .5rem;
+    border-radius: 2rem;
+    border: none;
+}
+
+.RentalItem-detail-buttons .RentalItem-detail--1 {
+    background-color: var(--main-color--light);
+}
+
+.RentalItem-detail-buttons .RentalItem-detail--2 {
+    background-color: var(--secondary-color);
+}

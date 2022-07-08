@@ -1,0 +1,84 @@
+﻿@model TheatreCMS3.Areas.Rent.Models.RentalItem
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="RentalItem-create--header">Edit Rental</h2>
+
+
+@using (Html.BeginForm("Edit", "RentalItems", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    string image = "";
+    if (Model.ItemPhoto != null)
+    {
+        image = Convert.ToBase64String(Model.ItemPhoto);
+    }
+    <div class="form-horizontal rentalItem-create--form">
+        <h4>Rental</h4>
+
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.RentalItemId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Item, "Rental Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Item, new { htmlAttributes = new { @class = "form-control RentalItem-create--inputbox" } })
+                @Html.ValidationMessageFor(model => model.Item, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ItemDescription, "Description", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ItemDescription, new { htmlAttributes = new { @class = "form-control RentalItem-create--inputbox" } })
+                @Html.ValidationMessageFor(model => model.ItemDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PickupDate, "Pickup Date", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PickupDate, new { htmlAttributes = new { @class = "form-control RentalItem-create--inputbox" } })
+                @Html.ValidationMessageFor(model => model.PickupDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReturnDate, "Return Date", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ReturnDate, new { htmlAttributes = new { @class = "form-control RentalItem-create--inputbox" } })
+                @Html.ValidationMessageFor(model => model.ReturnDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ItemPhoto, "Rental Photo", htmlAttributes: new { @class = "control-label col-md-2" })
+            <input type="file" name="userimage" id="userimage" />
+            <img src="data:image/jpg;base64,@image" height="250" width="250" />
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 RentalItem-create--createbutton">
+                <input type="submit" value="Save" class="btn btn-default " />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 RentalItem-create--backbutton">
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </div>
+
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

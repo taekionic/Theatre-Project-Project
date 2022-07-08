@@ -1,0 +1,120 @@
+﻿@model TheatreCMS3.Areas.Rent.Models.RentalItem
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    string image = "";
+    if (Model.ItemPhoto != null)
+    {
+        image = Convert.ToBase64String(Model.ItemPhoto);
+    }
+    string editlink = Url.Action("Edit", "RentalItems", new { id = Model.RentalItemId });
+    string backlink = Url.Action("", "RentalItems");
+}
+
+<div>
+    <h4 style="font-weight: bold; color: var(--secondary-color); text-align: center; margin-top: 2rem;">@Html.DisplayFor(model => model.Item)</h4>
+    <hr />
+
+    <div class="RentalItem-detail-detailbody">
+        <div class="RentalItem-details--container">
+            <div class="RentalItem-details--image">
+                <img src="data:image/jpg;base64,@image" height="1500" />
+                <div class="RentalItem-detail-buttons">
+                    <div>
+                        <button class="RentalItem-detail--backbutton RentalItem-detail--1" type="button" onclick="location.href='@editlink'">
+                            <i style="" class="fa fa-file" aria-hidden="true"></i>
+                            Edit
+                        </button>
+                    </div>
+                    <div>
+                        <button class="RentalItem-detail--backbutton RentalItem-detail--2" type="button" onclick="location.href='@backlink'">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                            Back to List
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="RentalItem-details--info">
+                <div class="RentalItem-details--infocontent">
+                    <div class="RentalItem-details--infolabel">
+                        Pickup Date:
+                    </div>
+                    <div class="RentalItem-details--infoinfo">
+                        @Html.DisplayFor(model => model.PickupDate)
+                    </div>
+                </div>
+                <div class="RentalItem-details--infocontent">
+                    <div class="RentalItem-details--infolabel">
+                        Return Date:
+                    </div>
+                    <div class="RentalItem-details--infoinfo">
+                        @Html.DisplayFor(model => model.ReturnDate)
+                    </div>
+                </div>
+                <div class="RentalItem-details--infocontent">
+                    <div class="RentalItem-details--infolabel">
+                        Description:
+                    </div>
+                    <div class="RentalItem-details--infoinfo">
+                        @Html.DisplayFor(model => model.ItemDescription)
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    @*<dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Item)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Item)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ItemDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ItemDescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PickupDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PickupDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ReturnDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ReturnDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ItemPhoto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ItemPhoto)
+            </dd>
+
+        </dl>*@
+</div>
+@*<p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.RentalItemId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

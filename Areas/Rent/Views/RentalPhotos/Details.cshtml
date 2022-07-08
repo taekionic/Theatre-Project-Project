@@ -1,0 +1,51 @@
+﻿@model TheatreCMS3.Areas.Rent.Models.RentalPhotos
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RentalPhotos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RentalsName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentalsName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Damaged)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Damaged)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RentalPhoto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentalPhoto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RentalPhotosId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
